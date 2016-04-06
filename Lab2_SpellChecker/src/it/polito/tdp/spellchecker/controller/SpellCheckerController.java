@@ -66,18 +66,18 @@ public class SpellCheckerController {
     		{	
 	    		if(lingua.compareTo("Italiano")==0)
 	    		{
-		    		italian.loadDictionary();
+		    		italian.loadDictionary(); //Carichiamo il dizionario italiano
 		    		String inserita = text1.getText();
 		    		StringTokenizer st = new StringTokenizer(inserita);
-		    		while( st.hasMoreTokens())
+		    		while( st.hasMoreTokens()) 
 		    		{
 		    			String token = st.nextToken().toLowerCase().trim();
 		    			parole.add(token);
 		    		}
 		    		
-		    		risultato = italian.spellCheckText(parole);
-		    		aggiornarisultato(risultato);
-		    	l2=System.nanoTime();
+		    		risultato = italian.spellCheckText(parole); //richiamiamo il metodo che restituisce una lista con le  parole controllate dal dizionario
+		    		aggiornarisultato(risultato); 				//richiamo il metodo che verifica se le parole sono corrette o meno e le stampa nella TextFlow
+		    	l2=System.nanoTime();							 //Controlla il tempo finale
 		    	}
 	    	
 	    		else if(lingua.compareTo("English")==0)
