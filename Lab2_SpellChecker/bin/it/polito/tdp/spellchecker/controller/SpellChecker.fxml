@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="30.0">
+               <children>
+                  <Label text="Scegli lingua:" />
+                  <ComboBox fx:id="cmblingua" promptText="Seleziona">
+                  <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Italiano" />
+          <String fx:value="English" />
+        </FXCollections>
+      </items>
+      </ComboBox>
+               </children>
+            </HBox>
+            <TextArea fx:id="text1" prefHeight="100.0" prefWidth="357.0" />
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="bttCorreggi" mnemonicParsing="false" onAction="#doSpellCheck" text="Correggi">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextFlow fx:id="text2" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblres" textFill="#f21919" />
+            <Button fx:id="bttClear" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#doClear" text="Clear">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <padding>
+      <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+   </padding>
+   <top>
+      <Label text="LAB2:SPELL CHECKER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </Label>
+   </top>
 </BorderPane>
