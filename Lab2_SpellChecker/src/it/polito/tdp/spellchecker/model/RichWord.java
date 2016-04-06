@@ -28,5 +28,9 @@ public class RichWord {
 	public void setStato(boolean stato) {
 		this.stato = stato;
 	}
+	@Override
+	public String toString() {
+		return parola ;
+	}
 	
 }

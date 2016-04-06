@@ -76,15 +76,7 @@ public class SpellCheckerController {
 		    		}
 		    		
 		    		risultato = italian.spellCheckText(parole);
-		    		for(RichWord r : risultato)
-		    		{
-		
-		    			if(r.getStato()== true)
-		    			{
-		    			visualizza += r.getParola()+"\n";
-		    			}
-		    			else{}
-		    		}
+		    		aggiungiParola(risultato);
 		    	l2=System.nanoTime();
 		    	}
 	    	
@@ -100,15 +92,7 @@ public class SpellCheckerController {
 		    		}
 		    		
 		    		risultato = inglese.spellCheckText(parole);
-		    		for(RichWord r : risultato)
-		    		{
-		
-		    			if(r.getStato()== true)
-		    			{
-		    			visualizza += r.getParola()+"\n";
-		    			}
-		    			else{}
-		    		}
+		    		aggiungiParola(risultato);
 		    		l2=System.nanoTime();
 		    	}
     		}
@@ -117,19 +101,36 @@ public class SpellCheckerController {
 	    		lblres.setText("Selezionare una lingua");
 	    		return ;
 	    	}
+    		lblres.setText("Correzione completata in "+(l2-l1)/(1e9)+"secondi");
+
     	}
 
-		this.aggiornaRisultato(visualizza, l2-l1);    	
 
 }
-    public void aggiornaRisultato(String res,long secondi)
-    {
-		 Text casella= new Text();
-		 casella.setText(res);
-		 casella.setFill(javafx.scene.paint.Color.RED);
-		lblres.setText("Correzione completata in "+(secondi)/(1e9)+"secondi");
-		text2.getChildren().add(casella);
-    }
+    private void aggiungiParola(List<RichWord> risultato) {
+    	for(RichWord r : risultato)
+		{
+			
+			if(r.getStato()== true)
+			{
+				Text casella = new Text(r.getParola()+" ");
+				casella.setFill(javafx.scene.paint.Color.RED);
+				text2.getChildren().add(casella);
+				System.out.println(r.toString());
+			}
+			else{
+				Text casella = new Text(r.getParola()+" ");
+				casella.setFill(javafx.scene.paint.Color.BLACK);
+
+		    	text2.getChildren().add(casella);
+				
+			}
+		}		
+	}
+
+	
+
+	
     
     
     public void setModel( ItalianDicionary ita, EnglishDictionary eng){
@@ -145,6 +146,6 @@ public class SpellCheckerController {
         assert bttClear != null : "fx:id=\"bttClear\" was not injected: check your FXML file 'SpellChecker.fxml'.";
         assert text2 != null : "fx:id=\"text2\" was not injected: check your FXML file 'SpellChecker.fxml'.";
         assert lblres != null : "fx:id=\"lblres\" was not injected: check your FXML file 'SpellChecker.fxml'.";
-        text2.setVisible(true);
+  
     }
 }

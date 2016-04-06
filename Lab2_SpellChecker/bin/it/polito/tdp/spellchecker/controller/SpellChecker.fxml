@@ -40,9 +40,12 @@
                   </Button>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox opacity="0.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
                <children>
-                  <TextFlow fx:id="text2" />
+                  <TextFlow fx:id="text2" prefHeight="100.0" />
                </children>
             </HBox>
          </children>
