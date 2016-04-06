@@ -76,7 +76,7 @@ public class SpellCheckerController {
 		    		}
 		    		
 		    		risultato = italian.spellCheckText(parole);
-		    		aggiungiParola(risultato);
+		    		aggiornarisultato(risultato);
 		    	l2=System.nanoTime();
 		    	}
 	    	
@@ -92,7 +92,7 @@ public class SpellCheckerController {
 		    		}
 		    		
 		    		risultato = inglese.spellCheckText(parole);
-		    		aggiungiParola(risultato);
+		    		aggiornarisultato(risultato);
 		    		l2=System.nanoTime();
 		    	}
     		}
@@ -107,7 +107,7 @@ public class SpellCheckerController {
 
 
 }
-    private void aggiungiParola(List<RichWord> risultato) {
+    private void aggiornarisultato(List<RichWord> risultato) {
     	for(RichWord r : risultato)
 		{
 			
