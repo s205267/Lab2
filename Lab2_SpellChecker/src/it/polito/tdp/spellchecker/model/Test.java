@@ -5,8 +5,8 @@ import java.util.*;
 public class Test {
 
 	public static void main(String[] args) {
-		List<String> parole = new LinkedList<String>();
-		List<RichWord> risultato = new LinkedList<RichWord>();
+		List<String> parole = new ArrayList<String>();
+		List<RichWord> risultato = new ArrayList<RichWord>();
 		Dictionary d = new ItalianDicionary();
 		d.loadDictionary();
 		parole.add("ciao");

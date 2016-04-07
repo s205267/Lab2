@@ -4,15 +4,15 @@ import java.util.*;
 
 public class Dictionary {
 	
-	private List<String> diz = new LinkedList <String>();
+	private Set<String> diz = new HashSet <String>();
 	
 	public void loadDictionary(){}
 	
-	public List<RichWord> spellCheckText(List<String> inputTextList)
+	public List<RichWord> spellCheckText(List<String> parole)
 	{
-		List<RichWord> risultato = new LinkedList<RichWord>();
+		List<RichWord> risultato = new ArrayList<RichWord>();
 		
-		for(String parola:inputTextList)
+		for(String parola:parole)
 		{
 			RichWord temp = new RichWord(parola);
 			
