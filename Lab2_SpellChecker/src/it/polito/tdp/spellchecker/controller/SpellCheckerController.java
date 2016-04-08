@@ -70,7 +70,7 @@ public class SpellCheckerController {
 	    		if(lingua.compareTo("Italiano")==0)
 	    		{
 		    		italian.loadDictionary(); //Carichiamo il dizionario italiano
-		    		String inserita = text1.getText();
+		    		String inserita = text1.getText().replaceAll("[\\p{Punct}]"," ");
 		    		StringTokenizer st = new StringTokenizer(inserita);
 		    		while( st.hasMoreTokens()) 
 		    		{

@@ -9,6 +9,7 @@ public class EnglishDictionary extends Dictionary {
 
 	@Override
 	public void loadDictionary() {
+		// con File di testo
 		try {
 			FileReader fr = new FileReader("rsc/English.txt");
 			BufferedReader br = new BufferedReader(fr);
@@ -20,5 +21,7 @@ public class EnglishDictionary extends Dictionary {
 			} catch (IOException e){
 			System.out.println("Errore nella lettura del file");
 			}
-	}
+			
+		
+		}
 }

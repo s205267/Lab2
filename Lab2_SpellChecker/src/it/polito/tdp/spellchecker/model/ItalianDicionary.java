@@ -2,10 +2,13 @@ package it.polito.tdp.spellchecker.model;
 
 import java.io.*;
 
+import it.polito.tdp.spellchecker.db.ParolaDAO;
+
 public class ItalianDicionary extends Dictionary {
 
 	@Override
 	public void loadDictionary() {
+		/*con file di testo
 		try {
 			FileReader fr = new FileReader("rsc/Italian.txt");
 			BufferedReader br = new BufferedReader(fr);
@@ -17,6 +20,11 @@ public class ItalianDicionary extends Dictionary {
 			} catch (IOException e){
 			System.out.println("Errore nella lettura del file");
 			}
+		*/
+		//CON DATABASE
+		ParolaDAO dao = new ParolaDAO();
+		diz.addAll(dao.elencoParole());
+		
 	}
 
 }
